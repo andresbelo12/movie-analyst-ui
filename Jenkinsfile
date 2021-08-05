@@ -2,8 +2,6 @@ node {
 
 	step([$class: 'WsCleanup'])
 
-  
-
   stage('Checkout Code') {    
   	checkout scm    
   }
@@ -15,7 +13,7 @@ node {
 				'npm_config_cache=npm-cache',
 						/* Override HOME Path */
 				'HOME=.',
-				'PORT=${FRONT_PORT}'
+				'PORT=3030'
 			]) {
         sh 'npm install'
         sh 'npm test'
@@ -28,9 +26,11 @@ node {
   }
 
 	stage("Pushing image to registry"){
-    
-    frontendImage.push('latest')
-    
+
+		docker.withRegistry('', 'docker-hub') {
+      frontendImage.push('latest')
+    }
+     
   }
 
   stage("Removing unnecessary images"){
