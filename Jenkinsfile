@@ -14,7 +14,7 @@ node {
 				/* Override the npm cache directory to avoid: EACCES: permission denied, mkdir '/.npm' */
 				'npm_config_cache=npm-cache',
 						/* Override HOME Path */
-				'HOME=.'
+				'HOME=.',
 				'PORT=${FRONT_PORT}'
 			]) {
         sh 'npm install'
