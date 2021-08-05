@@ -13,7 +13,7 @@ node {
 				'npm_config_cache=npm-cache',
 						/* Override HOME Path */
 				'HOME=.',
-				'PORT=3030'
+				'PORT=${FRONT_PORT}'
 			]) {
         sh 'npm install'
         sh 'npm test'
