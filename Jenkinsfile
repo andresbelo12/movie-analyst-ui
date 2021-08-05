@@ -27,7 +27,7 @@ node {
 
 	stage("Pushing image to registry"){
 
-		docker.withRegistry('', 'docker-hub') {
+		docker.withRegistry('', 'andresbelo12-dockerhub') {
       frontendImage.push('latest')
     }
      
