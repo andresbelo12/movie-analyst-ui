@@ -36,7 +36,7 @@ node {
 
   stage("Trigger CD") {
     build job: 'movie-analyst-ui-cd', parameters: [
-      string(name: 'TAG', value: "$BUILD_NUMBER")
+      string(name: 'TAG', value: "latest")
     ]
   }
 
