@@ -10,14 +10,10 @@ node {
 
   stage('Execute deployment with ansible') {
     dir('CM/ansible/frontend') {
-      sh "ls"
-      sh "ls ~/Credentials/"
-      sh "ls /"
-      sh "pwd"
       sh """
         ansible-playbook main.yml\
         -u ubuntu -vvv \
-        -e ansible_ssh_private_key_file="/home/ubuntu/Credentials/ramp-up-devops-andreslopezb-kp.pem"
+        -e ansible_ssh_private_key_file="/home/ubuntu/Credentials/ramp-up-devops-andreslopezb-kp.pem" \
         -e BACK_HOST=${BACK_HOST} \
       """
     }
