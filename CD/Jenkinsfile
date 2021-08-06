@@ -12,6 +12,7 @@ node {
     dir('CM/ansible/frontend') {
       sh "ls"
       sh "pwd"
+      sh "export"
       sh """
         sudo ansible-playbook main.yml\
         -e ansible_ssh_private_key_file="~/Credentials/ramp-up-devops-andreslopezb-kp.pem"
